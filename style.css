@@ -391,20 +391,14 @@ select.form-control option {
 
 /* Add a dark mode specific caret */
 
-[data-theme="dark"] select.form-control {
-        background-image: var(--select-caret-dark);
-    }
-    
+
     [data-theme="dark"] select.form-control option {
         background-color: var(--color-surface);
         color: var(--color-text);
     }
 
 
-/* Also handle data-theme */
-[data-theme="dark"] select.form-control {
-    background-image: var(--select-caret-dark);
-}
+
 
 [data-theme="dark"] select.form-control option {
     background-color: var(--color-surface);
