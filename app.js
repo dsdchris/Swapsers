@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
     // --- GESTIÓN DEL TEMA (NUEVO Y MEJORADO) ---
     const themeToggle = document.getElementById('theme-toggle');
     const htmlEl = document.documentElement;
@@ -40,9 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100,
     });
 
+
     // --- GENERADOR DE PARTÍCULAS (SIN CAMBIOS) ---
     createParticles();
-    
+
     // --- NAVEGACIÓN MÓVIL (SIN CAMBIOS) ---
     setupMobileNav();
 
@@ -54,12 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- CONTADORES ANIMADOS (SIN CAMBIOS) ---
     animateCounters();
-    
+
     // --- FORMULARIO DE CONTACTO (SIN CAMBIOS FUNCIONALES) ---
     setupContactForm();
 
     // --- EFECTO RIPPLE EN BOTONES (NUEVO) ---
     addRippleEffectToButtons();
+    
+    
 });
 
 function createParticles() {
@@ -101,6 +105,26 @@ function setupMobileNav() {
             }
         });
     });
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', function (event) {
+        const nav = document.getElementById('nav-menu');
+        const toggle = document.getElementById('nav-toggle');
+
+        if (nav && nav.classList.contains('show')) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('show');
+
+                // Resetear ícono del hamburguesa
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
 }
 
 // MODIFICADO: Usa clases en lugar de estilos en línea
@@ -111,7 +135,7 @@ function setupHeaderScrollEffect() {
     let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // Añade clase para el fondo y sombra
         if (scrollTop > 50) {
             header.classList.add('header-scrolled');
@@ -154,7 +178,7 @@ function animateCounters() {
                 let count = 0;
                 const speed = 200;
                 const increment = target / speed;
-                
+
                 const update = () => {
                     if (count < target) {
                         count += increment;
@@ -191,7 +215,7 @@ function addRippleEffectToButtons() {
             ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
             ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
             ripple.classList.add('ripple-effect');
-            
+
             this.appendChild(ripple);
             ripple.addEventListener('animationend', () => ripple.remove());
         });
