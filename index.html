@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Cambiar nombre y la pag es responsive pero aun falla el menu de 3 rayas -->
     <header class="header" id="header" data-aos="fade-down" data-aos-duration="800">
@@ -16,13 +17,14 @@
             <div class="nav__brand" data-aos="zoom-in" data-aos-delay="200">
                 <img src="SWAPSERS.png" alt="SWAPSERS Logo" class="nav__logo-img">
             </div>
-            
+
             <!-- Botón de cambio de tema -->
-            <button class="theme-toggle" id="theme-toggle" data-aos="zoom-in" data-aos-delay="250" aria-label="Cambiar tema">
+            <button class="theme-toggle" id="theme-toggle" data-aos="zoom-in" data-aos-delay="250"
+                aria-label="Cambiar tema">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
             </button>
-            
+
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item" data-aos="fade-down" data-aos-delay="300">
@@ -31,7 +33,7 @@
                     <li class="nav__item" data-aos="fade-down" data-aos-delay="400">
                         <a href="#servicios" class="nav__link">Servicios</a>
                     </li>
-                    
+
                     <li class="nav__item" data-aos="fade-down" data-aos-delay="600">
                         <a href="#como-funciona" class="nav__link">Cómo Funciona</a>
                     </li>
@@ -59,7 +61,7 @@
                         Generamos clientes para Empresas de Tecnología
                     </h1>
                     <p class="hero__description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        Nos especializamos en conseguir clientes para empresas de tecnología y productos gamer. 
+                        Nos especializamos en conseguir clientes para empresas de tecnología y productos gamer.
                         Solo cobramos 10% cuando la venta se completa exitosamente.
                     </p>
                     <div class="hero__buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
@@ -119,7 +121,8 @@
             <div class="section__header" data-aos="fade-up" data-aos-duration="800">
                 <h2 class="section__title">Cómo Ayudamos a tu Empresa</h2>
                 <p class="section__description">
-                    Nos encargamos de todo el proceso de ventas para que tu empresa se enfoque únicamente en entregar y cobrar
+                    Nos encargamos de todo el proceso de ventas para que tu empresa se enfoque únicamente en entregar y
+                    cobrar
                 </p>
             </div>
             <div class="services__grid">
@@ -219,7 +222,8 @@
                     <div class="process__content">
                         <h3 class="process__title">Entrega</h3>
                         <p class="process__description">
-                            Tu empresa entrega el producto y cobra - nosotros te cobramos el 10% de la venta realizada al final del mes
+                            Tu empresa entrega el producto y cobra - nosotros te cobramos el 10% de la venta realizada
+                            al final del mes
                         </p>
                     </div>
                 </div>
@@ -305,7 +309,7 @@
                             </div>
                             <div class="contact__text">
                                 <span class="contact__label">Email</span>
-                                <span class="contact__value">info@leadgenpro.com</span>
+                                <span class="contact__value">swapsers@gmail.com</span>
                             </div>
                         </div>
                         <div class="contact__item" data-aos="fade-up" data-aos-delay="200">
@@ -329,51 +333,49 @@
                     </div>
                 </div>
                 <div class="contact__form-container" data-aos="fade-left" data-aos-duration="800">
-                    <form class=" " id="contact-form">
-                        <div class="form-group animated-input" data-aos="fade-up" data-aos-delay="100">
-                            <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+                    <form action="https://formspree.io/f/xeozpwor" method="POST" class="contact__form glass-morphism">
+
+                        <!-- NOMBRE DE LA EMPRESA -->
+                        <div class="form-group">
                             <label for="name" class="form-label">Nombre de la Empresa</label>
-                            <div class="input-line"></div>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
-                        <div class="form-group animated-input" data-aos="fade-up" data-aos-delay="200">
-                            <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+
+                        <!-- CORREO ELECTRÓNICO -->
+                        <div class="form-group">
                             <label for="email" class="form-label">Correo Electrónico</label>
-                            <div class="input-line"></div>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
-                        <div class="form-group animated-input" data-aos="fade-up" data-aos-delay="300">
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder=" " required>
+
+                        <!-- TELÉFONO -->
+                        <div class="form-group">
                             <label for="phone" class="form-label">Teléfono</label>
-                            <div class="input-line"></div>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
-                        <div class="form-group animated-select" data-aos="fade-up" data-aos-delay="400">
+
+                        <!-- PRODUCTOS -->
+                        <div class="form-group">
+                            <label for="products" class="form-label">Tipo de Productos que Vendes</label>
                             <select id="products" name="products" class="form-control" required>
-                                <option value="" disabled selected>Selecciona un producto</option>
+                                <option value="" disabled selected>Selecciona una opción</option>
                                 <option value="gaming">Productos Gaming</option>
                                 <option value="hardware">Hardware y Componentes</option>
                                 <option value="software">Software</option>
                                 <option value="accesorios">Accesorios Tecnológicos</option>
                                 <option value="otros">Otros</option>
                             </select>
-                            <label for="products" class="form-label">Tipo de Productos que Vendes</label>
-                            <div class="input-line"></div>
                         </div>
-                        <div class="form-group animated-textarea" data-aos="fade-up" data-aos-delay="500">
-                            <textarea id="message" name="message" rows="4" class="form-control" placeholder=" "></textarea>
+
+                        <!-- MENSAJE -->
+                        <div class="form-group">
                             <label for="message" class="form-label">Mensaje (Opcional)</label>
-                            <div class="input-height"></div>
+                            <textarea id="message" name="message" rows="4" class="form-control"></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full-width submit-btn" data-aos="fade-up" data-aos-delay="600">
-                            <span class="btn-text">Solicitar Información</span>
-                            <span class="btn-loading">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                Enviando...
-                            </span>
-                            <div class="btn-success">
-                                <i class="fas fa-check"></i>
-                                ¡Enviado!
-                            </div>
-                        </button>
+
+                        <!-- BOTÓN DE ENVÍO -->
+                        <button type="submit" class="btn btn--primary btn--full-width">Solicitar Información</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -405,15 +407,6 @@
                         </ul>
                     </div>
                     <div class="footer__column">
-                        <h4 class="footer__title">Otros Servicios</h4>
-                        <ul class="footer__list">
-                            <li><a href="#otros-servicios">Desarrollo Web</a></li>
-                            <li><a href="#otros-servicios">SEO y Marketing</a></li>
-                            <li><a href="#otros-servicios">Publicidad Online</a></li>
-                            <li><a href="#otros-servicios">Automatización</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__column">
                         <h4 class="footer__title">Empresa</h4>
                         <ul class="footer__list">
                             <li><a href="#como-funciona">Cómo Funciona</a></li>
@@ -433,4 +426,5 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
