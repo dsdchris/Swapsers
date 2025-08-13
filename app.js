@@ -89,6 +89,7 @@ function createParticles() {
 function setupMobileNav() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const navClose = document.getElementById('nav-close');
     const navLinks = document.querySelectorAll('.nav__link');
     if (!navToggle || !navMenu) return;
 
@@ -96,6 +97,14 @@ function setupMobileNav() {
         const isShown = navMenu.classList.toggle('show');
         navToggle.querySelector('i').className = `fas ${isShown ? 'fa-times' : 'fa-bars'}`;
     });
+
+    // Botón de cierre de la sidebar
+    if (navClose) {
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+        });
+    }
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {

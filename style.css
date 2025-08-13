@@ -650,6 +650,11 @@ body {
     object-fit: contain;
 }
 
+/* Oculta el logo interno del menú en desktop para evitar duplicados */
+.nav__menu .nav__brand {
+    display: none;
+}
+
 .nav__list {
     display: flex;
     list-style: none;
@@ -1635,32 +1640,122 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Sidebar móvil desde la derecha */
     .nav__menu {
         position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        /* usa colores semánticos para que respondan a data-theme */
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: calc(100vh + 82px);
         background: var(--color-surface);
         color: var(--color-text);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--color-border);
-        transition: left var(--duration-normal) var(--ease-standard);
-        padding: var(--space-24);
+        border-left: 1px solid var(--color-border);
+        transition: right var(--duration-normal) var(--ease-standard);
+        padding: var(--space-32);
         z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
     }
 
     .nav__menu.show {
-        left: 0;
+        right: 0;
     }
 
+    /* Logo dentro de la sidebar */
+    .nav__menu .nav__brand {
+        display: flex
+        ;
+                margin-bottom: var(--space-32);
+                padding-bottom: var(--space-24);
+                border-bottom: 1px solid var(--color-border);
+                width: 100%;
+                text-align: center;
+                align-items: center;
+                justify-content: space-between;
+    }
+
+    .nav__menu .nav__brand .nav__logo-img {
+        max-width: 120px;
+        height: auto;
+    }
+
+    .nav__brand {
+        position: relative;
+    }
+
+    .nav__close {
+        background: none;
+        border: none;
+        color: var(--color-text);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all var(--duration-normal) var(--ease-standard);
+        display: flex
+;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav__close:hover {
+        background: var(--color-border);
+        transform: scale(1.1);
+    }
+
+    /* Lista vertical en sidebar */
     .nav__list {
         flex-direction: column;
-        gap: var(--space-16);
+        gap: var(--space-24);
+        width: 100%;
+        margin-top: var(--space-16);
+    }
+
+    .nav__item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav__link {
+        display: flex;
+        padding: var(--space-16);
+        border-radius: var(--radius-base);
+        font-size: var(--font-size-lg);
+        transition: all var(--duration-normal) var(--ease-standard);
+    }
+
+    .nav__link:hover {
+        background: rgba(33, 128, 141, 0.15);
+        transform: translateX(10px);
     }
 
     .nav__toggle {
         display: block;
+    }
+
+    .nav__overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        height: calc(100dvh + 82px);
+        visibility: hidden;
+        transition: opacity var(--duration-normal) var(--ease-standard), visibility var(--duration-normal) var(--ease-standard);
+    }
+
+    .nav__menu.show + .nav__overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    body:has(#nav-menu.show) {
+        overflow: hidden;
     }
 
     .hero__content {
@@ -1860,7 +1955,6 @@ body {
     background: rgb(1 35 64);
 }
 
-/* Layout overflow safety: previene scroll horizontal por animaciones fuera de pantalla */
 html, body {
     overflow-x: clip;
 }
@@ -1871,7 +1965,6 @@ html, body {
     }
 }
 
-/* Secciones con efectos de entrada: recorta overflow horizontal localmente */
 .hero,
 .statistics,
 .services,
