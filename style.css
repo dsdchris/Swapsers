@@ -1881,7 +1881,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgb(0, 103, 166);
     border-radius: var(--radius-base) var(--radius-base) 0 0;
     color: var(--color-text);
     font-size: var(--font-size-base);
