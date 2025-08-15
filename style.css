@@ -902,6 +902,11 @@ body {
     background-color: #13343b0a;
 }
 
+/* Estilo para el ícono de check en estadísticas */
+.statistics .fa-check-circle {
+    color: var(--color-primary);
+}
+
 .statistics__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
